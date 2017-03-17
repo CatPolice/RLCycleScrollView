@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RLCycleScrollView: UIView , UIScrollViewDelegate{
+class RLCycleScrollView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -50,7 +50,7 @@ class RLCycleScrollView: UIView , UIScrollViewDelegate{
 
 
 
-extension RLCycleScrollView{
+extension RLCycleScrollView :UIScrollViewDelegate{
     
     public func buildView(frame: CGRect) -> Void {}
     
@@ -80,7 +80,7 @@ extension RLCycleScrollView{
             imgview.isUserInteractionEnabled = true
             self.scrollview.addSubview(imgview)
             
-            let tap = UITapGestureRecognizerEx()
+            let tap = UITapGestureRecognizerExtension()
             tap.index = i
             tap.addTarget(self, action: #selector(tapAction))
             imgview.addGestureRecognizer(tap)
@@ -105,7 +105,7 @@ extension RLCycleScrollView{
     }
     
     
-    @objc private func tapAction(tap:UITapGestureRecognizerEx) ->Void{
+    @objc private func tapAction(tap:UITapGestureRecognizerExtension) ->Void{
         callBackDidSelectItem?(tap.index)
     }
     
@@ -131,7 +131,7 @@ extension RLCycleScrollView{
 
 
 
-class UITapGestureRecognizerEx: UITapGestureRecognizer {
+class UITapGestureRecognizerExtension: UITapGestureRecognizer {
 //    var tag:Int = 0
     var index:Int = 0
 }
